@@ -1,18 +1,19 @@
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./path/to/your/serviceAccountKey.json'); // Replace with the actual path
+// Load the service account key from the correct path
+const serviceAccount = require('./serviceAccountKey.json'); // Ensure this file is in the same directory
 
 let db; // Declare the db variable outside the function
 
 function getFirestore() {
-  if (!db) {
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      databaseURL: 'https://drunk-66c60.firebaseio.com' // Replace with your database URL
-    });
-    db = admin.firestore();
-  }
-  return db;
+    if (!db) {
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: 'https://drunk-66c60.firebaseio.com' // Ensure this is your actual Firebase DB URL
+        });
+        db = admin.firestore();
+    }
+    return db;
 }
 
 module.exports = { getFirestore };
