@@ -13,6 +13,17 @@ body {
   margin: 20px auto;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
 input {
   padding: 8px;
   border: 1px solid #ccc;

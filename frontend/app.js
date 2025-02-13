@@ -1,46 +1,4 @@
-import {
-  auth,
-  db,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  setDoc,
-  doc,
-} from "./firebaseClient.js";
-
-// Function to sign up a user
-async function signup() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const messageBox = document.getElementById("message");
-
-  if (!email || !password) {
-    messageBox.innerText = "❌ Please enter an email and password.";
-    return;
-  }
-
-  try {
-    // Create user in Firebase Authentication
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    const user = userCredential.user;
-
-    // Store user in Firestore Database
-    await setDoc(doc(db, "users", user.uid), {
-      email: user.email,
-      createdAt: new Date(),
-    });
-
-    messageBox.innerText = `✅ Signed up as ${user.email}`;
-    console.log("User signed up and stored in Firestore:", user);
-    window.location.href = "/home.html";
-  } catch (error) {
-    messageBox.innerText = `❌ Error: ${error.message}`;
-    console.error("Signup Error:", error);
-  }
-}
+import { auth, signInWithEmailAndPassword } from "./firebaseClient.js";
 
 // Function to log in a user
 async function login() {
@@ -71,6 +29,5 @@ async function login() {
   }
 }
 
-// Attach functions to buttons in index.html
-document.getElementById("signup-btn").addEventListener("click", signup);
+// Attach the login function to the login button
 document.getElementById("login-btn").addEventListener("click", login);
