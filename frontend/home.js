@@ -20,37 +20,38 @@ document.getElementById("logout-btn").addEventListener("click", () => {
       console.error("Logout error:", error);
     });
 });
- //Get cocktail data
- async function fetchCocktailData(searchTerm) {
+//Get cocktail data
+async function fetchCocktailData(searchTerm) {
   const apiKey = import.meta.env.VITE_COCKTAIL_API_KEY;
   const url = `https://www.thecocktaildb.com/api/json/v1/${apiKey}/search.php?s=${searchTerm}`;
 
-  try{
+  try {
     const response = await fetch(url);
     const data = await response.json();
-    
-    if(data.drinks){
+
+    if (data.drinks) {
       displayCocktailIngredients(data.drinks);
+    } else {
+      document.getElementById("cocktail-results").innterHTML =
+        "<p>No Cocktails Found</p>";
     }
-    else{
-      document.getElementById("cocktail-results").innterHTML = "<p>No Cocktails Found</p>";
-    }
-  }
-  catch(error){
+  } catch (error) {
     console.error("Error fetching cocktail data:", error);
   }
-  }
+}
 
 //Display ingredients of the searched cocktail
 function displayCocktailIngredients(cocktails) {
   const resultsContainer = document.getElementById("cocktail-results");
   resultsContainer.innerHTML = ""; // Clear previous results
 
-  cocktails.forEach(cocktail => {
+  cocktails.forEach((cocktail) => {
     const cocktailElement = document.createElement("div");
     cocktailElement.innerHTML = `
       <h3>${cocktail.strDrink}</h3>
-      <img src="${cocktail.strDrinkThumb}" alt="${cocktail.strDrink}" width="150">
+      <img src="${cocktail.strDrinkThumb}" alt="${
+      cocktail.strDrink
+    }" width="150">
       <p><strong>Ingredients:</strong> ${getIngredients(cocktail)}</p>
     `;
     resultsContainer.appendChild(cocktailElement);
@@ -75,5 +76,8 @@ document.getElementById("search-btn").addEventListener("click", () => {
   fetchCocktailData(searchTerm);
 });
 
+// log a drink
 
-
+document
+  .getElementById("log-drink-btn")
+  .addEventListener("click", async () => {});
