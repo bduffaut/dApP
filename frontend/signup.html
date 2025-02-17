@@ -29,6 +29,15 @@
           />
         </div>
         <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Create a Username"
+            required
+          />
+        </div>
+        <div class="form-group">
           <label for="dob">Date of Birth</label>
           <input type="date" id="dob" required />
         </div>
@@ -47,6 +56,19 @@
             type="number"
             id="weight"
             placeholder="Enter your weight in kg"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="smoker">Do you smoke?</label>
+          <input type="checkbox" id="smoker" />
+        </div>
+        <div class="form-group">
+          <label for="exercise">Exercise per Week</label>
+          <input
+            type="number"
+            id="exercise"
+            placeholder="Times per week"
             required
           />
         </div>
@@ -76,7 +98,6 @@
         <a href="/index.html">Login</a>
       </p>
     </div>
-
     <script type="module" src="signup.js"></script>
   </body>
 </html>

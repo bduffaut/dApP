@@ -9,13 +9,15 @@
   <body>
     <h2>Welcome to the Home Page</h2>
     <p>Logged in as <span id="user-email"></span></p>
+    <!-- New score displays -->
+    <p>Neurons Killed: <span id="neurons-killed">0</span></p>
+    <p>Days Taken Off: <span id="days-taken-off">0</span></p>
     <button id="logout-btn">Logout</button>
 
     <!-- Cocktail search -->
     <h3>Search for Cocktails</h3>
     <input type="text" id="search-input" placeholder="Enter cocktail name" />
     <button id="search-btn">Search</button>
-
     <div id="cocktail-results"></div>
 
     <!-- Log a drink -->
@@ -45,6 +47,16 @@
     <div class="form-group">
       <label for="drink-alc-content">Alcohol Content %</label>
       <input type="text" id="drink-alc-content" required />
+    </div>
+    <!-- Optional sugar content -->
+    <div class="form-group">
+      <label for="drink-sugar-content">Sugar Content (grams)</label>
+      <input
+        type="number"
+        id="drink-sugar-content"
+        placeholder="Enter sugar content in grams (optional)"
+      />
+    </div>
     <button id="log-drink-btn">🤪 Log Drink 🤪</button>
 
     <script type="module" src="home.js"></script>
