@@ -8,11 +8,50 @@
   </head>
   <body>
     <h2>Welcome <span id="user-firstname"></span></h2>
-    <p>Logged in as <span id="user-email"></span></p>
-    <!-- New score displays -->
-    <p>Neurons Killed: <span id="neurons-killed">0</span></p>
-    <p>Days Taken Off: <span id="days-taken-off">0</span></p>
-    <button id="logout-btn">Logout</button>
+
+    <div id="user-data">
+      <p>Logged in as <span id="user-email"></span></p>
+      <p>Neurons Killed: <span id="neurons-killed">0</span></p>
+      <p>Days Taken Off: <span id="days-taken-off">0</span></p>
+      <button id="logout-btn">Logout</button>
+    </div>
+
+    <!-- Leaderboards Container -->
+    <div id="leaderboards">
+      <!-- Neurons Killed Leaderboard -->
+      <div id="leaderboard-neurons">
+        <h3>Neurons Killed Leaderboard</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Neurons Killed</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-neurons-body">
+            <!-- Leaderboard rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Days Taken Off Leaderboard -->
+      <div id="leaderboard-life">
+        <h3>Days Taken Off Leaderboard</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Days Taken Off</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-life-body">
+            <!-- Leaderboard rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- Cocktail search -->
     <h3>Search for Cocktails</h3>
@@ -59,6 +98,6 @@
     </div>
     <button id="log-drink-btn">🤪 Log Drink 🤪</button>
 
-    <script type="module" src="home.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

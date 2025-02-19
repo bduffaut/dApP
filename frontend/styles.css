@@ -5,14 +5,49 @@ body {
   padding: 20px;
 }
 
-#auth-container {
+/* User Data: display elements in a row */
+#user-data {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 300px;
-  margin: 20px auto;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
+#user-data p,
+#user-data button {
+  margin: 0;
+}
+
+/* Force leaderboard to span full width and appear below user data */
+#leaderboard {
+  flex-basis: 100%;
+  margin-top: 20px;
+}
+
+/* Leaderboard Styling */
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#leaderboard th,
+#leaderboard td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#leaderboard th {
+  background-color: #f4f4f4;
+}
+
+#leaderboard tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Existing Styles */
 .form-group {
   display: flex;
   flex-direction: column;
