@@ -27,11 +27,31 @@ async function fetchUserMetrics() {
   }
 }
 
+async function fetchFirstName(user) {
+  if (!user) return;
+  try {
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    if (userDoc.exists()) {
+      const firstName = userDoc.data()?.firstName || "User";
+      document.getElementById("user-firstname").textContent = firstName;
+      console.log("[fetchFirstName] First Name:", firstName);
+    } else {
+      console.warn("[fetchFirstName] User document not found.");
+    }
+  } catch (error) {
+    console.error("[fetchFirstName] Error fetching user data:", error);
+  }
+  return firstName;
+}
+
 // Show current user email using modular methods
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("[onAuthStateChanged] User logged in:", user.email);
     document.getElementById("user-email").textContent = user.email;
+
+    // Fetch and update user's first name
+    fetchFirstName(user);
     // Update scores on login
     fetchUserMetrics();
   } else {
